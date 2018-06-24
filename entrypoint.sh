@@ -48,7 +48,7 @@ if [ "$1" = 'mysqld' ]; then
 		
 		for file in /docker-entrypoint-initdb.d/*; do
 			case "$file" in
-				*.sh)     echo "$0: running $f"; . "$f" ;;
+				*.sh)     echo "$0: running $file"; . "$file" ;;
 				*.sql)    echo "$0: copy $file into init-file"; cat $file >> $tempSqlFile ;;
 				*.sql.gz) echo "$0: copy $file into init-file"; gunzip -c $file >> $tempSqlFile ;;
 				*)        echo "$0: ignoring $file" ;;
